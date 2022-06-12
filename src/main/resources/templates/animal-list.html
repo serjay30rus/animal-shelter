@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta charset="UTF-8">
+            <title>Animals</title>
+        </head>
+<body>
+<div th:switch="${animals}">
+    <h2 th:case="null">No animal found!</h2>
+    <div th:case="*">
+        <h2>Animals</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Weight</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="animal : ${animals}">
+                <td th:text="${animal.id}"></td>
+                <td th:text="${animal.name}"></td>
+                <td th:text="${animal.weight}"></td>
+                <td><a th:href="@{animal-update/{id}(id=${animal.id})}">Edit</a></td>
+                <td><a th:href="@{animal-delete/{id}(id=${animal.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/animal-create">Add animal</a></p>
+    <p><a href="/noname-animals">Show all stray animals</a></p>
+</div>
+</body>
+</html>

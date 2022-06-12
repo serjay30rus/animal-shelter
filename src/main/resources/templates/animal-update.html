@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Add animal</title>
+</head>
+<body>
+<form action="#" th:action="@{/animal-update}" th:object="${animal}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="name">Title</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <br/>
+    <label for="weight">Author</label>
+    <input type="text" th:field="*{weight}" id="weight" placeholder="Weight">
+    <br/>
+    <input type="submit" value="Add animal">
+</form>
+</body>
+</html>
